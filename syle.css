@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #222222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #fff;
+}
+
+.todo {
+    width: 100%;
+}
+
+.todo-title {
+    color: #fff;
+    text-align: center;
+}
+
+.message {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 10px 0;
+    padding: 10px 10px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    width: 250px;
+}
+
+.add-button {
+    padding: 10px 13px;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    background-color: rgb(77, 199, 199);
+    cursor: pointer;
+    outline: none;
+}
+
+.add-button:hover {
+    background-color: rgba(77, 199, 199, 0.7);
+}
+
+ul {
+    padding-left: 10px;
+}
+
+li {
+    list-style: none;
+    color: #fff;
+    padding: 10px 0 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button.remove-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: end;
+    color: #ff6347;
+}
+
+.item-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    text-align: center;
+    outline: none;
+}
