@@ -1,7 +1,6 @@
 let addBtn = document.querySelector('.add-button'),
     addMessage = document.querySelector('.message'),
-    todo = document.querySelector('.todo-ul'),
-    checkBox = document.querySelectorAll("input[type=checkbox]");
+    todo = document.querySelector('.todo-ul');
 
 
 
@@ -13,7 +12,7 @@ function render(todoList) {
     return todoList.map((item, i) => {
         return ` 
         <li>
-          <input type='checkbox' class="item-checkbox" data-index="${i}">
+          <input type='checkbox' class="item-checkbox" ${item.checked ? 'checked=true' : ''} data-index="${i}">
           <label><input class="item-input" value="${item.todo}" data-index="${i}"></label>
           <button class="remove-btn" data-index="${i}">
           <span><i class="fas fa-times"></i></span>
@@ -23,8 +22,7 @@ function render(todoList) {
 }
 
 function save(todoList) {
-    localStorage.setItem('todo', JSON.stringify(todoList))
-    localStorage.setItem('checkBox', 'true')
+    localStorage.setItem('todo', JSON.stringify(todoList));
 }
 
 function read() {
@@ -59,6 +57,17 @@ todo.addEventListener('click', (event) => {
     save(todoList);
 })
 
+// todo.addEventListener('change', (event) => {
+//     let itemCheckbox = event.target.closest(".item-checkbox");
+//     if (!itemCheckbox) {
+//         return
+//     }
+//     let index = Number(itemCheckbox.getAttribute('data-index'));
+//     todoList[index].checked = !todoList[index].checked;
+//     todo.innerHTML = render(todoList);
+//     save(todoList);
+// })
+
 todo.addEventListener('keyup', (event) => {
     let changeInput = event.target.closest(".item-input");
 
@@ -80,9 +89,10 @@ todo.addEventListener('change', (event) => {
         return;     
     }
     let changeCheckboxInput = event.target.closest(".item-checkbox");
+
     if(changeCheckboxInput) {
         let index = Number(changeCheckboxInput.getAttribute('data-index'));
-        todoList[index].checked = changeCheckboxInput.value;
+        todoList[index].checked = changeCheckboxInput.checked;
         save(todoList);
         return; 
     }
